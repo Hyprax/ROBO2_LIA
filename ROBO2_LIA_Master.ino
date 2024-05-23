@@ -25,6 +25,9 @@
 #define clockWise 1
 // Here we define anticlockwise as 0, later used with digital.write (0 = LOW).
 #define antiClockwise 0
+#define ahead 90
+#define right 25
+#define left 155
 
 //Servo
 // Here we create servo object to control a servo.
@@ -181,6 +184,7 @@ void ReceiveEvent()
 
   if(response == "Criminal")
   {
+    FollowMode();
     Serial.println("POLICE CHASE");
     int r=255,g=0,b=0;
     FastLED.showColor(Color(r, g, b));
@@ -296,21 +300,6 @@ void Stop()
 
 void FollowMode()
 {
-  void loop()
-  {
-    SonicSensor = true;
-  
-    //Values
-    int Rval = analogRead(sensorR);
-    int Lval = analogRead(sensorL);
-    int midVal = analogRead(sensorMid);
-
-    if(midVal >= 500 && Rval >= 500 && Lval >= 500)
-    {
-      Stop();
-    }
-    else
-    {
       myservo.write(ahead);
       delay(500);
       SonicSens();
@@ -393,7 +382,6 @@ void FollowMode()
       {
         Backward(100);
       }
-    }
     if(SonicSensor == false || distance == 0)
     {
       Backward(100);
@@ -403,5 +391,4 @@ void FollowMode()
       Forward(100);
     delay(500);
     }
-  }
 }
