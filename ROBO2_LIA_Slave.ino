@@ -115,7 +115,6 @@ void Criminal()
   lcd.setCursor(0, 1);
   lcd.print("Access DENIED    ");
   delay(500);
-  /*
   for(d=0; d<=5; d++)
   {
     for(i=635; i<=912; i++)
@@ -138,5 +137,4 @@ void Criminal()
     }
   }
   noTone(BUZZ);
-  */
 }
