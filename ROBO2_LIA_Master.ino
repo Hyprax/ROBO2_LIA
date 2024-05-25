@@ -145,10 +145,6 @@ void loop()
       // Head(servo) facing straight forward.
       myservo.write(95);
     }
-    else if(IrReceiver.decodedIRData.command == Zero)
-    {
-      SendEvent();
-    }
     // This resumes the reading of IR signals. (resume reading and go back through the loop)
     IrReceiver.resume();
  }
@@ -186,12 +182,14 @@ void ReceiveEvent()
   {
     FollowMode();
     Serial.println("POLICE CHASE");
+    /*
     int r=255,g=0,b=0;
     FastLED.showColor(Color(r, g, b));
     delay(200);
     r=0,g=0,b=255;
     FastLED.showColor(Color(r, g, b));
     delay(200);
+    */
   }
 }
 
@@ -389,6 +387,6 @@ void FollowMode()
       Right(100);
       delay(500);
       Forward(100);
-    delay(500);
+      delay(500);
     }
 }
