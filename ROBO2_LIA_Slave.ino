@@ -104,8 +104,6 @@ void Artin()
 
 void Criminal()
 {
-  byte x = Wire.read();
-
   //Send signal to Master Arduino to initiate POLICE CHASE
   Wire.onRequest(SendEvent);
 
@@ -121,19 +119,11 @@ void Criminal()
     {
       tone(BUZZ, i);
       delay(10);
-      if(x == 1)
-      {
-        break;
-      }
     }
     for(i=912; i>=635; i--)
     {
       tone(BUZZ, i);
       delay(10);
-      if(x == 1)
-      {
-        break;
-      }
     }
   }
   noTone(BUZZ);
